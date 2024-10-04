@@ -21,11 +21,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('load-videos/', views.load_videos, name='load_videos'),
-
+    path('', views.index, name='index'),  # The landing page will be 'index'
+    path('home/', views.home, name='home'),  # Separate home page
+    path('science/', views.science, name='science'),
+    path('videos/', views.videos, name='videos'),
+    path('performance/', views.performance, name='performance'),
+    path('testimonials/', views.testimonials, name='testimonials'),
+    path('contact/', views.contact, name='contact'),
 ]
+
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

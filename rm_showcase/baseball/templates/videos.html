@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container py-5">
+    <h2 class="text-center mb-5">Video Trainings</h2>
+    <p class="lead">Access our training videos to enhance your baseball skills.</p>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Power Hitting</h4>
+            <video controls width="100%">
+                <source src="{% static 'videos/training_video_1.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-md-6">
+            <h4>Pitching Mechanics</h4>
+            <video controls width="100%">
+                <source src="{% static 'videos/training_video_2.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+{% endblock %}

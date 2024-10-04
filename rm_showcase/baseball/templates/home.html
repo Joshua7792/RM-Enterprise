@@ -1,60 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section class="container py-5">
-    <h2 class="text-center mb-5" data-aos="fade-up">Training Videos</h2>
-    <div class="row" id="videos-container">
-        <!-- Videos will load here dynamically -->
-    </div>
-
-    <h2 class="text-center mb-5" data-aos="fade-up">Performance Chart</h2>
-    <div class="text-center">
-        <canvas id="progressChart" width="400" height="200"></canvas>
+<section id="home" class="d-flex align-items-center justify-content-center text-center text-white" style="height: 100vh; background: url('images/baseball_background.jpg') no-repeat center center/cover;">
+    <div>
+        <h2 class="display-4 animate__animated animate__fadeInUp">Welcome to RM SHOWCASE</h2>
+        <p class="lead animate__animated animate__fadeInUp">Pushing baseball performance through science and innovation.</p>
+        <a href="{% url 'science' %}" class="btn btn-primary mt-3">Learn More</a>
     </div>
 </section>
 
-<script>
-    // Dynamic content loading for videos
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('/load-videos/')
-            .then(response => response.json())
-            .then(data => {
-                let container = document.getElementById("videos-container");
-                data.videos.forEach(video => {
-                    let videoElement = `
-                        <div class="col-md-6" data-aos="fade-up">
-                            <h4>${video.title}</h4>
-                            <video controls width="100%">
-                                <source src="${video.video_file}" type="video/mp4">
-                            </video>
-                            <p>${video.description}</p>
-                        </div>`;
-                    container.innerHTML += videoElement;
-                });
-            });
-    });
+<section class="container py-5" data-aos="fade-up">
+    <h2 class="text-center mb-5">Our Expertise</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <img src="{% static 'images/swing.jpg' %}" class="card-img-top" alt="Swing">
+                <div class="card-body">
+                    <h4 class="card-title">Perfecting Your Swing</h4>
+                    <p class="card-text">We optimize your swing using cutting-edge biomechanics and analysis techniques to improve power and accuracy.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <img src="{% static 'images/pitch.jpg' %}" class="card-img-top" alt="Pitch">
+                <div class="card-body">
+                    <h4 class="card-title">Pitching Mastery</h4>
+                    <p class="card-text">Learn the science behind pitching speed, movement, and control through our expert coaching.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center">
+                <img src="{% static 'images/agility.jpg' %}" class="card-img-top" alt="Agility">
+                <div class="card-body">
+                    <h4 class="card-title">Speed & Agility</h4>
+                    <p class="card-text">Improve your footwork and reaction time with our advanced agility drills and exercises.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
 
-    // Chart.js example for displaying performance data
-    var ctx = document.getElementById('progressChart').getContext('2d');
-    var progressChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-            datasets: [{
-                label: 'User Performance',
-                data: [10, 15, 20, 30],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
+
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="home" class="d-flex align-items-center justify-content-center text-center text-white" style="height: 100vh; background: url('{% static 'images/baseball_background.jpg' %}') no-repeat center center/cover;">
+    <div>
+        <h2 class="display-4">Welcome to RM SHOWCASE</h2>
+        <p class="lead">Enhancing your baseball performance through science.</p>
+        <a href="{% url 'science' %}" class="btn btn-primary mt-3">Learn More</a>
+    </div>
+</section>
 {% endblock %}

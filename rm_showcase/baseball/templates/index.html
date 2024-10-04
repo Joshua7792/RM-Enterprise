@@ -1,0 +1,159 @@
+i<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM SHOWCASE - The Science of Baseball</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3 fixed-top">
+        <h1 class="animate__animated animate__bounce">RM SHOWCASE</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#science">Science of Baseball</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#videos">Training Videos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="d-flex align-items-center justify-content-center text-center text-white" style="height: 100vh; background: url('images/baseball_background.jpg') no-repeat center center/cover;">
+        <div>
+            <h2 class="display-4">The Science Behind Baseball</h2>
+            <a href="#science" class="btn btn-primary mt-3">Discover More</a>
+        </div>
+    </section>
+
+    <section id="science" class="container py-5">
+        <h2 class="text-center mb-5" data-aos="fade-up">Science of Baseball</h2>
+        <p class="lead" data-aos="fade-up">Understanding the physics, biomechanics, and psychology that power the sport of baseball.</p>
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-right">
+                <h4>Physics of the Swing</h4>
+                <p>The mechanics behind a powerful swing involve angular momentum, force generation, and energy transfer. A well-timed swing maximizes these principles for optimal performance.</p>
+            </div>
+            <div class="col-md-4" data-aos="fade-up">
+                <h4>Biomechanics of Pitching</h4>
+                <p>Pitching is a complex motion involving the entire body. The kinetic chain, from legs to fingertips, plays a crucial role in velocity and accuracy.</p>
+            </div>
+            <div class="col-md-4" data-aos="fade-left">
+                <h4>Mental Toughness</h4>
+                <p>Baseball is as much a mental game as a physical one. Concentration, confidence, and the ability to handle pressure are key to success.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="container py-5">
+        <h2 class="text-center mb-5" data-aos="fade-up">Training Videos</h2>
+        <div class="row" id="videos-container">
+            <!-- Videos will load here dynamically -->
+        </div>
+    </section>
+
+    <section id="chart" class="container py-5">
+        <h2 class="text-center mb-5" data-aos="fade-up">Performance Chart</h2>
+        <div class="text-center">
+            <canvas id="performanceChart" width="400" height="200"></canvas>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">About Us</h2>
+            <p data-aos="fade-up">RM SHOWCASE is dedicated to pushing the boundaries of baseball performance through science. Our approach combines years of experience in baseball with cutting-edge scientific research.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Contact Us</h2>
+            <form data-aos="fade-up">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Enter Name">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Enter Email">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Enter Message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2024 RM SHOWCASE. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init();
+
+        // Load dynamic videos with AJAX
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/load-videos/')
+                .then(response => response.json())
+                .then(data => {
+                    let container = document.getElementById("videos-container");
+                    data.videos.forEach(video => {
+                        let videoElement = `
+                            <div class="col-md-6" data-aos="fade-up">
+                                <h4>${video.title}</h4>
+                                <video controls width="100%">
+                                    <source src="${video.video_file}" type="video/mp4">
+                                </video>
+                                <p>${video.description}</p>
+                            </div>`;
+                        container.innerHTML += videoElement;
+                    });
+                });
+        });
+
+        // Chart.js performance chart example
+        var ctx = document.getElementById('performanceChart').getContext('2d');
+        var performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'User Performance',
+                    data: [10, 15, 20, 30],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> {% endcomment %}
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="index" class="d-flex align-items-center justify-content-center text-center text-white" style="height: 100vh; background: url('{% static 'images/baseball_intro.jpg' %}') no-repeat center center/cover;">
+    <div>
+        <h2 class="display-4">RM SHOWCASE</h2>
+        <p class="lead">Where baseball meets science.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">Enter</a>
+    </div>
+</section>
+{% endblock %}
