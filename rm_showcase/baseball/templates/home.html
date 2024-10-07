@@ -17,83 +17,132 @@
     </div>
 </section>
 
+
 <!-- Success Stories Section -->
-<section class="container py-5 text-center">
-    <h2 class="mb-4" style="color: #26D3C7; font-weight: bold;">1000+ SUCCESS STORIES</h2>
+<section class="container fullContainer" style="background-color: #000;">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 style="color: #26D3C7;">SUCCESS</h1>
+            <h1 style="color: #26D3C7;">STORIES</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <!-- Instagram Embed Video Only -->
+                <iframe src="https://www.instagram.com/reel/DAiij23RFOU/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                <!-- End Instagram Embed Video Only -->
+            
+            <p style="color: #FFF;">Elevate your game with our cutting-edge baseball training app...</p>
+            <a href="#scroll-id-6Z-G8YzXa-11" class="btn btn-primary" style="background-color: #26D3C7;">Join Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="container py-5 text-center" style="background-color: #111;">
+    <h2 class="mb-4" style="color: #26D3C7; font-weight: bold;">TESTIMONIALS</h2>
     <div class="row">
         <div class="col-md-4">
-            <div class="card bg-dark text-white">
-                <img src="{% static 'images/player1.jpg' %}" class="card-img" alt="Nick Snyder">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                    <p class="card-text">"My Guy Thomas Summers helped me reinvent my body and become a better athlete."</p>
+            <div class="testimonial-card position-relative">
+                <img src="{% static 'images/player1.jpg' %}" class="card-img" alt="Person 1">
+                <div class="testimonial-overlay">
+                    <h4>Player 1</h4>
+                    <p class="team-name">MLB</p>
+                    <p class="testimonial-text">
+                        "I was working with Reiner Mendez during the offseason. It helped me get into very good shape."
+                    </p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card bg-dark text-white">
-                <img src="{% static 'images/player2.jpg' %}" class="card-img" alt="Yoan Moncada">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                    <p class="card-text">"Thomas Summers knows what he's talking about. His training improved my performance."</p>
+            <div class="testimonial-card position-relative">
+                <img src="{% static 'images/player2.jpg' %}" class="card-img" alt="Person 2">
+                <div class="testimonial-overlay">
+                    <h4>Player 2</h4>
+                    <p class="team-name">NIPON</p>
+                    <p class="testimonial-text">
+                        "Reiner Mendez helped me reach new levels in my performance."
+                    </p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card bg-dark text-white">
-                <img src="{% static 'images/player3.jpg' %}" class="card-img" alt="Ryan Borucki">
-                <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                    <p class="card-text">"His programming transformed my career. I owe so much of my success to him."</p>
+            <div class="testimonial-card position-relative">
+                <img src="{% static 'images/player3.jpg' %}" class="card-img" alt="Person 3">
+                <div class="testimonial-overlay">
+                    <h4>Player 3</h4>
+                    <p class="team-name">College</p>
+                    <p class="testimonial-text">
+                        "His programming transformed my career."
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+
 <!-- Training Programs Section -->
-<section class="container py-5 text-center" style="background-color: #111;">
-    <h2 class="mb-4" style="color: #26D3C7; font-weight: bold;">STRENGTH & CONDITIONING PROGRAMS</h2>
+<section id="strength-conditioning" class="container fullContainer text-center py-5" style="background-color: #000;">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card bg-dark text-white h-100">
-                <img src="{% static 'images/program1.jpg' %}" class="card-img" alt="Professional Program">
-                <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title" style="color: #26D3C7;">PROFESSIONAL</h5>
-                    <p class="card-text">Advanced training for pro players.</p>
-                    <a href="#" class="btn btn-primary mt-2" style="background-color: #26D3C7; color: #000;">Learn More</a>
+        <!-- Left Column (Text Section) -->
+        <div class="col-md-6">
+            <h1 style="color: #26D3C7;">Strength & Conditioning Programs</h1>
+            <p style="color: #FFF; margin-top: 20px;">
+                Expertly crafted, science-backed programs designed for your level of baseball, aligned with the season to meet your unique demands at the right time.
+            </p>
+            <a href="#join-now" class="btn btn-primary mt-3" style="background-color: #26D3C7; color: #FFF;">Join Now</a>
+        </div>
+
+        <!-- Right Column (Videos) -->
+        <div class="col-md-6">
+            <div class="row">
+                <!-- Professional Program -->
+                <div class="col-md-6">
+                    <div class="video-popup">
+                        <div class="video-wrapper">
+                            <iframe frameborder="0" allowfullscreen src="https://player.vimeo.com/video/871859599" style="width: 100%; height: auto;"></iframe>
+                        </div>
+                        <p style="color: #FFF; margin-top: 10px;">Professional Program</p>
+                    </div>
+                </div>
+
+                <!-- College Program -->
+                <div class="col-md-6">
+                    <div class="video-popup">
+                        <div class="video-wrapper">
+                            <iframe frameborder="0" allowfullscreen src="https://player.vimeo.com/video/871860222" style="width: 100%; height: auto;"></iframe>
+                        </div>
+                        <p style="color: #FFF; margin-top: 10px;">College Program</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-dark text-white h-100">
-                <img src="{% static 'images/program2.jpg' %}" class="card-img" alt="College Program">
-                <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title" style="color: #26D3C7;">COLLEGE</h5>
-                    <p class="card-text">Elite training for college athletes.</p>
-                    <a href="#" class="btn btn-primary mt-2" style="background-color: #26D3C7; color: #000;">Learn More</a>
+
+            <div class="row mt-4">
+                <!-- High School Program -->
+                <div class="col-md-6">
+                    <div class="video-popup">
+                        <div class="video-wrapper">
+                            <iframe frameborder="0" allowfullscreen src="https://player.vimeo.com/video/871860497" style="width: 100%; height: auto;"></iframe>
+                        </div>
+                        <p style="color: #FFF; margin-top: 10px;">High School Program</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-dark text-white h-100">
-                <img src="{% static 'images/program3.jpg' %}" class="card-img" alt="High School Program">
-                <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title" style="color: #26D3C7;">HIGH SCHOOL</h5>
-                    <p class="card-text">High school athlete performance.</p>
-                    <a href="#" class="btn btn-primary mt-2" style="background-color: #26D3C7; color: #000;">Learn More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card bg-dark text-white h-100">
-                <img src="{% static 'images/program4.jpg' %}" class="card-img" alt="Youth Program">
-                <div class="card-img-overlay d-flex flex-column justify-content-end">
-                    <h5 class="card-title" style="color: #26D3C7;">YOUTH</h5>
-                    <p class="card-text">Training for young baseball athletes.</p>
-                    <a href="#" class="btn btn-primary mt-2" style="background-color: #26D3C7; color: #000;">Learn More</a>
+
+                <!-- Youth Program -->
+                <div class="col-md-6">
+                    <div class="video-popup">
+                        <div class="video-wrapper">
+                            <iframe frameborder="0" allowfullscreen src="https://player.vimeo.com/video/871860410" style="width: 100%; height: auto;"></iframe>
+                        </div>
+                        <p style="color: #FFF; margin-top: 10px;">Youth Program</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Training App Section with Video Mockup -->
 <section class="container py-5 text-center" style="background-color: #111;">
@@ -102,7 +151,7 @@
         <div class="col-md-6">
             <div class="phone-video">
                 <video autoplay muted loop>
-                    <source src="{% static 'videos/app_demo.mp4' %}" type="video/mp4">
+                    <source src="{% static '' %}" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -115,9 +164,10 @@
                 <li style="color: #FFF;">Track weights and reps</li>
                 <li style="color: #FFF;">Built-in alternate exercises</li>
             </ul>
-            <a href="#" class="btn btn-primary mt-4" style="background-color: #26D3C7; color: #000;">Join Now</a>
+            <a href="#" class="btn btn-primary mt-4">Join Now</a>
         </div>
     </div>
 </section>
+
 
 {% endblock %}
