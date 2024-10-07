@@ -144,16 +144,92 @@
 </section>
 
 
-<!-- Training App Section with Video Mockup -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Training App Section with Force-Velocity Curve -->
 <section class="container py-5 text-center" style="background-color: #111;">
     <h2 class="mb-4" style="color: #26D3C7; font-weight: bold;">TRAIN WITH OUR APP</h2>
     <div class="row">
         <div class="col-md-6">
-            <div class="phone-video">
-                <video autoplay muted loop>
-                    <source src="{% static '' %}" type="video/mp4">
-                </video>
+            <!-- Dynamic Force-Velocity Chart -->
+            <canvas id="forceVelocityChart" width="400" height="400"></canvas>
+            <div>
+              <label for="rmRange">1RM (%): </label>
+              <input type="range" id="rmRange" name="rmRange" min="30" max="100" value="100" oninput="updateChart(this.value)">
+              <span id="rmValue">100%</span>
             </div>
+            
+            <script>
+              const ctx = document.getElementById('forceVelocityChart').getContext('2d');
+              const tealColor = '#26D3C7';
+              const forceVelocityData = {
+                datasets: [{
+                  label: 'Force-Velocity Curve',
+                  data: [
+                    { x: 100, y: 100 }, // Maximal Strength
+                    { x: 90, y: 80 },   // Strength-Speed
+                    { x: 60, y: 40 },   // Speed-Strength
+                    { x: 30, y: 10 }    // Maximal Speed
+                  ],
+                  borderColor: tealColor,
+                  fill: false,
+                  pointBackgroundColor: '#fff',
+                  borderWidth: 3,
+                }]
+              };
+            
+              const forceVelocityOptions = {
+                responsive: true,
+                scales: {
+                  x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                      display: true,
+                      text: 'Velocity'
+                    }
+                  },
+                  y: {
+                    title: {
+                      display: true,
+                      text: 'Force'
+                    }
+                  }
+                },
+                plugins: {
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        let label = context.dataset.label || '';
+                        let percentage = Math.round(context.parsed.x);
+                        if (percentage === 100) label += ' (Maximal Strength)';
+                        if (percentage === 30) label += ' (Maximal Speed)';
+                        return label;
+                      }
+                    }
+                  }
+                }
+              };
+            
+              const forceVelocityChart = new Chart(ctx, {
+                type: 'line',
+                data: forceVelocityData,
+                options: forceVelocityOptions
+              });
+            
+              function updateChart(rmValue) {
+                document.getElementById('rmValue').textContent = rmValue + '%';
+                // Adjust chart dynamically based on user input
+                forceVelocityChart.data.datasets[0].data = [
+                  { x: 100, y: 100 * (rmValue / 100) },
+                  { x: 90, y: 80 * (rmValue / 100) },
+                  { x: 60, y: 40 * (rmValue / 100) },
+                  { x: 30, y: 10 * (rmValue / 100) }
+                ];
+                forceVelocityChart.update();
+              }
+            </script>
+            
         </div>
         <div class="col-md-6">
             <h5 class="mt-3" style="color: #FFF;">Maximize gains with our year-round baseball training app.</h5>
@@ -164,10 +240,12 @@
                 <li style="color: #FFF;">Track weights and reps</li>
                 <li style="color: #FFF;">Built-in alternate exercises</li>
             </ul>
-            <a href="#" class="btn btn-primary mt-4">Join Now</a>
+            <a href="#" class="btn btn-primary mt-4" style="background-color: #26D3C7; color: #000;">Join Now</a>
         </div>
     </div>
 </section>
+
+
 
 
 {% endblock %}
