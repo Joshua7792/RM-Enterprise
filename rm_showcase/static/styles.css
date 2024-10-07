@@ -1,66 +1,119 @@
-/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #181818; /* Dark background to match the logo */
-    color: #E0E0E0; /* Light gray text for readability */
+    background-color: #000;  /* Keep the black background */
+    color: #fff;
 }
 
-/* Buttons */
+/* Neon glow effect for buttons */
 .dynamic-btn {
-    background-color: #26D3C7; /* Cyan color from the logo */
-    color: #fff;
+    background-color: #26D3C7;
+    color: #000;  /* Black text inside the button */
+    border: 2px solid #26D3C7;
+    padding: 12px 24px;
     border-radius: 30px;
-    padding: 12px 30px;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 15px rgba(38, 211, 199, 0.7), 0 0 30px rgba(38, 211, 199, 0.5), 0 0 45px rgba(38, 211, 199, 0.3);
 }
 
 .dynamic-btn:hover {
-    background-color: #00a89c; /* Darker cyan on hover */
-    color: #000;
+    transform: scale(1.1);
+    background-color: #000;
+    color: #26D3C7;
+    box-shadow: 0 0 25px rgba(38, 211, 199, 0.9), 0 0 45px rgba(38, 211, 199, 0.7), 0 0 60px rgba(38, 211, 199, 0.5);
 }
 
-header img {
-    max-width: 120px;
-    height: auto;
+/* Neon effect for cards */
+.card {
+    background-color: #111;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Header & Hero Section */
-header {
-    background-color: #000; /* Black background for header */
-    padding: 10px 0;
-
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #26D3C7;
+    box-shadow: 0 8px 20px rgba(38, 211, 199, 0.4), 0 0 15px rgba(38, 211, 199, 0.6);
 }
 
+/* Neon glow effect for info cards */
+.info-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(38, 211, 199, 0.4);
+}
+
+.info-card:hover {
+    background-color: #333;
+    box-shadow: 0 0 20px rgba(38, 211, 199, 0.6);
+}
+
+/* Neon glow for text in the hero section */
+#home h2, #home p {
+    text-shadow: 0 0 8px rgba(38, 211, 199, 0.8), 0 0 12px rgba(38, 211, 199, 0.5), 0 0 20px rgba(38, 211, 199, 0.3);
+}
+
+/* Neon effect for navbar links */
 .navbar-nav .nav-link {
-    color: #26D3C7; /* Matches the teal from the logo */
+    color: #26D3C7;  /* Neon blue for links */
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 8px rgba(38, 211, 199, 0.6);
 }
 
 .navbar-nav .nav-link:hover {
     color: #fff;
+    text-shadow: 0 0 15px #fff, 0 0 25px #26D3C7;
 }
 
-#home {
-    position: relative;
-    background-color: #181818;
+/* Neon glow for the logo */
+header img {
+    max-width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #26D3C7);  /* Glow effect for the logo */
 }
 
-#home h2 {
-    color: #26D3C7; /* Cyan from the logo */
+/* Neon style for the carousel captions */
+.carousel-caption h5 {
+    color: #26D3C7;
+    text-shadow: 0 0 10px rgba(38, 211, 199, 0.8), 0 0 20px rgba(38, 211, 199, 0.5);
 }
 
+.carousel-caption p {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Neon effect for the footer */
 footer {
     background-color: #000;
     color: #fff;
     padding: 20px;
+    text-align: center;
+    border-top: 2px solid #26D3C7;  /* Neon border on top of the footer */
+    box-shadow: 0 0 10px rgba(38, 211, 199, 0.5), 0 0 20px rgba(38, 211, 199, 0.3);
 }
 
-/* Logo Styling */
-.logo {
-    width: 150px; /* Adjust size as needed */
-    margin: 0 auto;
-    display: block;
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #26D3C7;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #fff, 0 0 25px #26D3C7;
+}
+
+/* Neon glow for hover state of headings */
+h2:hover, h4:hover {
+    text-shadow: 0 0 15px rgba(38, 211, 199, 0.9), 0 0 25px rgba(38, 211, 199, 0.6), 0 0 35px rgba(38, 211, 199, 0.4);
 }
