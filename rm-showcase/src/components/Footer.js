@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Footer() {
-    return (
-        <footer style={{ backgroundColor: '#111', color: '#26D3C7', padding: '1rem', textAlign: 'center' }}>
-            <p>© 2024 RM Showcase. All rights reserved.</p>
-        </footer>
-    );
-}
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="footer-inner">
+        <p>&copy; {new Date().getFullYear()} RM Showcase. All rights reserved.</p>
+        <p>Follow us on social media: Instagram | Facebook | Twitter</p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
+
